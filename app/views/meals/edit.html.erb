@@ -1,0 +1,15 @@
+<h1><%= @meal.title %></h1>
+<%= form_for @meal do |f| %>
+    <div>
+        <%= f.text_field :title, placeholder: "title" %>
+    </div>
+    <div>
+        <%= f.text_area :description, placeholder: "description" %>
+    </div>
+    <div>
+        <%= f.number_field :calories_amount, placeholder: "calories_amount" %>
+    </div>
+    <div>
+        <%= f.submit "Save Updates" %>
+    </div>
+<% end %>

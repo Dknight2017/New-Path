@@ -1,0 +1,7 @@
+<h1>Meals#new</h1>
+<%= form_for @meal, url: {action: "create"}, html: {class: ""} do |f| %>
+  <%= f.text_field :title, placeholder: "title" %>
+  <%= f.text_area :description, placeholder: "description" %>
+  <%= f.number_field :calories_amount, placeholder: "calories_amount" %>
+  <%= f.submit "Create" %>
+<% end %>
