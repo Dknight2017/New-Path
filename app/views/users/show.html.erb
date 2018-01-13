@@ -1,4 +1,12 @@
 <h1><%= current_user.name %></h1>
 
 <h3><%= link_to "My Meals", users_path %></h3>
+<% @meals.each do |m| %>
+<h3> <%=link_to "meal", meal_path(m) %>:</h3>
+    <ul>
+        <li> title: <%= m.title %></li>
+        <li> description: <%= m.description %></li>
+        <li> calories: <%= m.calories_amount %></li>
+    </ul>
+<% end %>
 

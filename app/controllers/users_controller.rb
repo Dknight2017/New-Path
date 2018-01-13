@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @meal =""
+    @meals = Meal.all
   end
 
   def new
