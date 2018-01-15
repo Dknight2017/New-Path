@@ -8,15 +8,16 @@ class UsersController < ApplicationController
 
   def show
     @meals = Meal.all
+    
   end
 
   def new
-    @user = User.new
+    @users = User.new
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
+    @users = User.new(user_params)
+    if @users.save
       redirect_to "/users"
     end
   end

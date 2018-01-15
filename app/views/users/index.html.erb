@@ -1,10 +1,10 @@
 <h1>
 <% if logged_in? %>
       <h1><%= current_user.name%>'s meals</h1>
+      <h3><%= link_to "New Meal", new_meal_path %> </h3>
+
     <% else %>
       <h1>No one logged in</h1>
     <% end %>
-</h1>
 
-<h3><%= link_to "New Meal", new_meal_path %> </h3>
 
