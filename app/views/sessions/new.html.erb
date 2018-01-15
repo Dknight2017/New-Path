@@ -1,14 +1,29 @@
-<h1>Log In</h1>
-  <%= form_for :login, {url: login_path} do |f| %><br>
-    <div>
-      <%= f.email_field :email, placeholder: 'email' %>
-    </div><br>
-
-    <div>
-      <%= f.password_field :password, placeholder: 'password' %>
-    </div><br>
-
-    <div>
-      <%= f.submit 'Log In' %>
+<% if flash[:danger] %>
+    <div class="alert alert-danger">
+        <%= flash[:danger] %>
     </div>
-  <% end %>
+<% end %>
+
+<%= form_tag sessions_path,{:class => 'form-horizontal'} do %>
+	<div class="row"><legend class="col-md-4 col-md-offset-4">Sign In:</legend></div>
+    <fieldset>
+	    <div class="form-group">
+	        <%= label_tag :email, 'Email', class: 'col-md-4 control-label' %>
+		    <div class="col-md-5">
+		        <%= text_field_tag :email, params[:email], class: 'form-control' %>
+		    </div>
+	    </div>
+	    <div class="form-group">
+	        <%= label_tag :password, 'Password', class: 'col-md-4 control-label' %>
+		    <div class="col-md-5">
+		        <%= password_field_tag :password, nil, class: 'form-control' %>
+		    </div>
+	    </div>
+	    <div class="form-group">
+	        <div class="col-md-8 col-md-offset-4">
+	            <%= submit_tag 'Log in', class: 'btn btn-success' %>
+		        <%= link_to "Don't have an account?", new_user_path, class: 'btn btn-primary' %>
+	        </div>
+	    </div>
+    </fieldset>
+<% end %>
