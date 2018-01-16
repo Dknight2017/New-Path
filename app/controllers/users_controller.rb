@@ -3,12 +3,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @meals = Meal.all
   end
 
   def show
     @user = User.find(params[:id])
-    
   end
 
   def new
@@ -26,15 +24,16 @@ class UsersController < ApplicationController
   
   def edit
     # see the meals controller for reference on what to place here and in the update action below...
-    @User = User.find(params[:id])
+    @user = User.find(params[:id])
   end
   
   def update
-    @User = User.find(params[:id])
-    @User.email = user_params[:email]
-    @User.password = user_params[:password]
-    @User.save
-    redirect_to user_path(current_user)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(current_user)
+    else
+      redirect_to edit_user_path(current_user)
+    end
   end
   
   def destroy

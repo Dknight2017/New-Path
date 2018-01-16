@@ -1,11 +1,5 @@
-<h1>
-<% if logged_in? %>
-      <h1><%= current_user.name%>'s meals</h1>
-      <h3><%= link_to "New Meal", new_meal_path %> </h3>
-
-
-    <% else %>
-      <h1>No one logged in</h1>
-    <% end %>
-
-
+<ul>
+  <% @users.each do |u| %>
+    <li><%= link_to(u.name, user_path(u)) %></li>
+  <% end %>
+</ul>

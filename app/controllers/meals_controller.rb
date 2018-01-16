@@ -40,7 +40,7 @@ class MealsController < ApplicationController
     def destroy
         @meal = Meal.find(params[:id])
         if @meal.destroy
-            redirect_to users_path
+            redirect_to user_path(current_user)
         else
             redirect_to meal_path(@meal)
         end

@@ -10,14 +10,16 @@
   </head>
 
   <body>
-    <% if logged_in? %>
       <ul>
-        <li><%= link_to "Logout", logout_path, {method: "DELETE"} %></li>
-        <li><%= current_user.name %></li>
+        <li><%= link_to("Home", root_path) %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Logout", logout_path, {method: "DELETE"} %></li>
+          <li><%= link_to "Add Meal", new_meal_path %></li>
+          <li><%= current_user.name %></li>
+        <% else %>
+          <%= link_to "Login", new_session_path %>
+        <% end %>
       </ul>
-    <% else %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
     
     <div class="container">
         <%= yield %>

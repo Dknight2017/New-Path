@@ -1,4 +1,4 @@
-<h1><%= current_user.name %></h1>
+<h1><%= @user.name %></h1>
 
 <% if @user == current_user %>
 <div>
@@ -6,7 +6,6 @@
 </div>
 <% end %>
 
-<h3><%= link_to "New Meal", users_path %></h3>
 <% @user.meals.each do |m| %>
 <h3> <%=link_to "meal", meal_path(m) %>:</h3>
     <ul>
